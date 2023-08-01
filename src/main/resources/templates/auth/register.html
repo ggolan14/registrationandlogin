@@ -3,16 +3,75 @@
 <head>
   <title>Login</title>
 </head>
+<style>
+            body {
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .registration-form {
+      background-color: #5e057e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      color: #fff;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+      select {
+      width: 30%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #fff;
+      color: #5e057e;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+       .success-message {
+      background-color: #57bb8a;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+
+
+
+    </style>
 <body>
+<div class="registration-form">
   <form th:action="@{/register}" th:object="${user}" method="post">
     <h3>Registration</h3>
     <input type="text" th:field="*{firstName}" placeholder="First Name" /> <br/><br/>
     <input type="text" th:field="*{lastName}" placeholder="Last Name" /> <br/><br/>
     <input type="text" th:field="*{mobile}" placeholder="Mobile Number" /> <br/><br/>
-    <input type="text" th:field="*{email}" placeholder="Email" /> <br/><br/>
+    <input type="email" th:field="*{email}" placeholder="Email" /> <br/><br/>
     <input type="password" th:field="*{password}" placeholder="Password" /> <br/><br/>
     <select th:field="*{role}" required>
-      <option value="">Select</option>
+      <option value="">Select Role</option>
       <option value="ADMIN">ADMIN</option>
       <option value="USER">USER</option>
     </select> <br/><br/>
@@ -23,6 +82,8 @@
         <li th:text="${data.getObjectName() + ' :: ' + data.getDefaultMessage()}"></li>
       </ul>
     </div>
-</form>
+  </form>
+</div>
+
 </body>
 </html>

@@ -3,11 +3,23 @@
 <head>
   <title>User Dashboard</title>
 </head>
+<style>
+      .registration-form {
+      background-color: #5e057e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      color: #fff;
+    }
+</style>
 <body>
+<div class="registration-form">
   <h2>Welcome to Admin Dashboard</h2>
   <p>Logged as: <span sec:authentication="name"></span></p>
   <p>Has role: <span sec:authentication="authorities"></span></p>
   <p><a th:href="@{/}">Home</a></p>
   <p><a th:href="@{/logout}">Log out</a></p>
 </body>
+</div>
 </html>

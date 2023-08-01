@@ -3,13 +3,64 @@
 <head>
     <title>Login</title>
 </head>
+<style>
+            body {
+      background-color: #f8f8f8;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .registration-form {
+      background-color: #5e057e;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      color: #fff;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #fff;
+      color: #5e057e;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+       .success-message {
+      background-color: #57bb8a;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      text-align: center;
+      margin-top: 20px;
+      display: none;
+    }
+    </style>
 <body>
-    <form th:action="@{/login}" method="POST" class="form-signin">
+<div class="registration-form">
+    <form th:action="@{/login}" method="POST" >
         <h3 th:text="Login"></h3>
         <input type="text" name="email" th:placeholder="Email" /> <br /><br />
         <input type="password" th:placeholder="Password" name="password" /> <br /><br />
         <button type="Submit" th:text="Login"></button> | <a th:href="@{|/register|}" th:text="'Register'"></a><br />
         <div th:if="${param.error}"><p>Email or Password is invalid.</p></div> <br />
     </form>
+</div>
 </body>
 </html>

@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Homepage</title>
+  <title>Homepage</title>
 </head>
+<style>
+  .registration-form {
+      background-color: rgb(244,170,114);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      color: #fff;
+    }
+</style>
 <body>
-  <h2>Welcome to Homepage</h2>
+<div class="registration-form">
+  <h2>Welcome to My Homepage</h2>
   <p sec:authorize="hasRole('ROLE_ANONYMOUS')">Text visible to anonymous.</p>
   <p sec:authorize="hasRole('USER')">Text visible to user.</p>
   <p sec:authorize="hasRole('ADMIN')">Text visible to admin.</p>
@@ -22,6 +33,6 @@
     <p sec:authorize="hasAuthority('ADMIN')"><a th:href="@{|/admin/dashboard|}" th:text="'Admin Dashboard'"></a></p>
     <a th:href="@{/logout}">Log out</a>
   </div>
-
+</div>
 </body>
 </html>
